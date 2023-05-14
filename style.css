@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+span.timezone::after {
+    content: "\A";
+    white-space: pre;
+}
+span.title::after {
+    content: "\A";
+    white-space: pre;
+}
+
+table {
+  border-collapse: collapse;
+  border: solid 1px #333;
+  table-layout: fixed;
+}
+
+th.time {
+  border: solid 1px black;
+}
+
+ul.drag-list{
+  padding-left:0;
+}
+
+ul.drag-list li{
+  list-style:none;
+}
