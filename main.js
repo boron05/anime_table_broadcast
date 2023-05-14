@@ -151,7 +151,7 @@ function creatAnimeTable(week, bc = BC){
                                     let img_element = document.createElement('img');
                                     img_element.style.width = "200px";
                                     img_element.style.height = "285px";
-                                    img_element.src = "./key_visual/webp/"+ANIME[a_key]["img"] + ".webp";
+                                    img_element.src = "./key_visual/"+ANIME[a_key]["img"] + ".webp";
                                     td_element.appendChild(img_element);
                                 }
                                 //rowspan分のtdタグを消す処理
