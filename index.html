@@ -2,10 +2,10 @@
 <html lanj="ja">
 <head>
     <meta charset="utf-8">
-    <script src="anime_data.js"></script>
+    <script src="data_anime.js"></script>
+    <script src="data_tvStation.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="style.css">
-    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3K00CBTJF"></script>
     <script>
@@ -21,100 +21,129 @@
 <body>
     <h1>アニメ時刻表</h1>
     <div class="setting">
-        <ul id="bc-select" class="drag-list">
-            <li id="drag-last-temp" style="border:0;list-style-type:none;height:0;" draggable="false">&nbsp;</li>
-        </ul>
-        <button id="update-btn" type="button" onclick="update()">適用</button>
+        <details>
+            <summary>設定</summary>
+            <ul class="tv-sta-area">
+                <li class="area-hokkaido"><input type="checkbox" id="checkbox-all-hokkaido" class="checkbox-area"><label>北海道</label></li>
+                <li class="area-tohoku"><input type="checkbox" class="checkbox-area"><label>東北</label></li>
+                <li class="area-kanto"><input type="checkbox" class="checkbox-area"><label>関東</label></li>
+                <li class="area-hokuriku"><input type="checkbox" class="checkbox-area"><label>北陸・甲信越</label></li>
+                <li class="area-tokai"><input type="checkbox" class="checkbox-area"><label>東海</label></li>
+                <li class="area-kansai"><input type="checkbox" class="checkbox-area"><label>関西</label></li>
+                <li class="area-chugoku"><input type="checkbox" class="checkbox-area"><label>中国</label></li>
+                <li class="area-shikoku"><input type="checkbox" class="checkbox-area"><label>四国</label></li>
+                <li class="area-kyushu"><input type="checkbox" class="checkbox-area"><label>九州</label></li>
+                <li class="area-okinawa"><input type="checkbox" class="checkbox-area"><label>沖縄</label></li>
+            </ul>
+            <ul id="bc-select" class="drag-list">
+                <li id="drag-last-temp" style="border:0;list-style-type:none;height:0;" draggable="false">&nbsp;</li>
+            </ul>
+            <button id="update-btn" type="button" onclick="update()">適用</button>
+        </details>
     </div>
     <div id="div-sun">
         <h2>日曜日</h2>
-        <table>
-            <thead>
-                <tr id="thead-row">
-                    <th class="time">時刻</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="overflow">
+            <table>
+                <thead>
+                    <tr id="thead-row">
+                        <th class="time">時刻</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
     
     <div id="div-mon">
         <h2>月曜日</h2>
-        <table>
-            <thead>
-                <tr id="thead-row">
-                    <th class="time">時刻</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="overflow">
+            <table>
+                <thead>
+                    <tr id="thead-row">
+                        <th class="time">時刻</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
     
     <div id="div-tue">
         <h2>火曜日</h2>
-        <table>
-            <thead>
-                <tr id="thead-row">
-                    <th class="time">時刻</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="overflow">
+            <table>
+                <thead>
+                    <tr id="thead-row">
+                        <th class="time">時刻</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
     
     <div id="div-wed">
         <h2>水曜日</h2>
-        <table>
-            <thead>
-                <tr id="thead-row">
-                    <th class="time">時刻</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="overflow">
+            <table>
+                <thead>
+                    <tr id="thead-row">
+                        <th class="time">時刻</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
     
     <div id="div-thu">
         <h2>木曜日</h2>
-        <table>
-            <thead>
-                <tr id="thead-row">
-                    <th class="time">時刻</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="overflow">
+            <table>
+                <thead>
+                    <tr id="thead-row">
+                        <th class="time">時刻</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
     
     <div id="div-fri">
         <h2>金曜日</h2>
-        <table>
-            <thead>
-                <tr id="thead-row">
-                    <th class="time">時刻</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="overflow">
+            <table>
+                <thead>
+                    <tr id="thead-row">
+                        <th class="time">時刻</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
     
     <div id="div-sat">
         <h2>土曜日</h2>
-        <table>
-            <thead>
-                <tr id="thead-row">
-                    <th class="time">時刻</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="overflow">
+            <table>
+                <thead>
+                    <tr id="thead-row">
+                        <th class="time">時刻</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
