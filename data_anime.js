@@ -1,3 +1,4 @@
+
 var ANIME = {
   "その着せ替え人形は恋をする": {
     "bcInfo": {
@@ -193,7 +194,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全20話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "kagenozitsuryokusha",
     "note": null
   },
   "アリス・ギア・アイギス Expansion": {
@@ -210,7 +211,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "alicegearaegis",
     "note": null
   },
   "神無き世界のカミサマ活動": {
@@ -224,7 +225,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "kamikatsu",
     "note": null
   },
   "マイホームヒーロー": {
@@ -236,7 +237,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "myhomehero",
     "note": null
   },
   "蒼穹のファフナー EXODUS": {
@@ -249,7 +250,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全26話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "fafner-exodus",
     "note": null
   },
   "魔法少女マジカルデストロイヤーズ": {
@@ -262,7 +263,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "magical-mad",
     "note": null
   },
   "江戸前エルフ": {
@@ -275,7 +276,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "edomae-elf",
     "note": null
   },
   "ドラゴンボール超": {
@@ -295,7 +296,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "masamune",
     "note": null
   },
   "魔術士オーフェンはぐれ旅 聖域編": {
@@ -308,7 +309,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "ssorphen",
     "note": null
   },
   "エスタブライフ": {
@@ -323,7 +324,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "establife",
     "note": null
   },
   "ぐんまちゃん シーズン2": {
