@@ -19,10 +19,86 @@ th.time {
   border: solid 1px black;
 }
 
-ul.drag-list{
-  padding-left:0;
+ul.drag-list {
+  padding-left: 0;
 }
 
 ul.drag-list li{
-  list-style:none;
+  list-style: none;
 }
+
+ul.tv-sta-area {
+  padding-left: 0;
+}
+
+li.checkbox-area {
+  list-style: none;
+}
+
+li.area-hokkaido {
+  background-color: #3288bd;
+}
+
+li.area-tohoku {
+  background-color: #66c2a5;
+}
+
+li.area-kanto {
+  background-color: #abdda4;
+}
+
+li.area-hokuriku {
+  background-color: #e6f598;
+}
+
+li.area-tokai {
+  background-color: #fee08b;
+}
+
+li.area-kansai {
+  background-color: #fdae61;
+}
+
+li.area-chugoku {
+  background-color: #f46d43;
+}
+
+li.area-shikoku {
+  background-color: #dc6f4d;
+}
+
+li.area-kyushu {
+  background-color: #e9717e;
+}
+
+li.area-okinawa {
+  background-color: #ff7ea5;
+}
+
+.overflow {
+  margin-inline: auto;
+  overflow-x: auto; /* tableタグのはみ出た要素を隠す */
+  width: 100%;
+  height: 800px;
+}
+
+
+
+.overflow th{
+    white-space: nowrap;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #f2f2f2;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+.overflow tr :first-child .overflow th:first-child{
+    z-index: 1;
+}
+
+.overflow th{
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
