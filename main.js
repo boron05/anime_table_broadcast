@@ -1,84 +1,19 @@
 
-var BC = {
-    "北海道放送":{
-        "type": "地上波",
-        "area": "北海道",
-        "group": "TBS",
-        "abbrev": "HBC"
-    },
-    "札幌テレビ":{
-        "type": "地上波",
-        "area": "北海道",
-        "group": "日本テレビ",
-        "abbrev": "STV"
-    },
-    "北海道テレビ":{
-        "type": "地上波",
-        "area": "北海道",
-        "group": "テレビ朝日",
-        "abbrev": "HTB"
-    },
-    "テレビ北海道":{
-        "type": "地上波",
-        "area": "北海道",
-        "group": "テレビ東京",
-        "abbrev": "TVh"
-    },
-    "北海道文化放送":{
-        "type": "地上波",
-        "area": "北海道",
-        "group": "フジテレビ",
-        "abbrev": "UHB"
-    },
-    
-    "NHK":{
-        "type": "地上波",
-        "area": "関東",
-        "group": "NHK",
-        "abbrev": "NHK"
-    },
-    "日本テレビ":{
-        "type": "地上波",
-        "area": "関東",
-        "group": "日本テレビ",
-        "abbrev": "NTV"
-    },
-    "テレビ朝日":{
-        "type": "地上波",
-        "area": "関東",
-        "group": "テレビ朝日",
-        "abbrev": "EX"
-    },
-    "TOKYO MX":{
-        "type": "地上波",
-        "area": "関東",
-        "group": "TOKYO MX",
-        "abbrev": "MX"
-    },
-    "テレビ東京":{
-        "type": "地上波",
-        "area": "関東",
-        "group": "テレビ東京",
-        "abbrev": "TX"
-    },
-    "BS日テレ":{
-        "type": "BS",
-        "area": "関東",
-        "group": "日本テレビ",
-        "abbrev": "NTV"
-    },
-};
+var slc_tv_sta = {}
 
-var select_bc = {}
-
+const INIT_STA = ["TOKYO MX", "テレビ東京", "日本テレビ", "テレビ朝日", "TBSテレビ", "フジテレビ", "NHK"];
 const WEEK = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
-function createColumns(week, bc=BC){
+var checkbox_all_hokkaido = null;
+var checkbox_list_hokkaido = null;
 
-    let thead_row_element = document.querySelector("#div-" + week + " table thead #thead-row");
+
+function createColumns(week, tv_sta=TV_STATIONS){
+
+    let thead_row_element = document.querySelector("#div-" + week + " div.overflow table thead #thead-row");
 
     // 放送局ヘッダー列生成
-    for(let key in bc){
+    for(let key in tv_sta){
         let new_element = document.createElement('th');
         new_element.textContent = key;
         new_element.style.width = "200px";
@@ -90,10 +25,12 @@ function createColumns(week, bc=BC){
     }
 }
 
-function creatTimeIndex(week, bc=BC){
+
+
+function creatTimeIndex(week, tv_sta=TV_STATIONS){
     // 時刻生成
     //let tbody_element = document.getElementsByTagName("tbody")[0];
-    let tbody_element = document.querySelector("#div-" + week + " table tbody");
+    let tbody_element = document.querySelector("#div-" + week + " div.overflow table tbody");
     for(let h=22; h<27; h++){
         for(let m=0; m<60; m++){
             let new_tr_element = document.createElement('tr');
@@ -106,7 +43,7 @@ function creatTimeIndex(week, bc=BC){
             new_th_element.style.borderRight = "solid 1px black";
             tbody_element.appendChild(new_tr_element);
             new_tr_element.appendChild(new_th_element);
-            for(let key in bc){
+            for(let key in tv_sta){
                 let new_td_element = document.createElement('td');
                 new_td_element.setAttribute("class", key);
                 new_tr_element.appendChild(new_td_element);
@@ -123,23 +60,21 @@ function creatTimeIndex(week, bc=BC){
     }
 }
 
-function creatAnimeTable(week, bc = BC){
+function creatAnimeTable(week, tv_sta=TV_STATIONS){
     for(let a_key in ANIME){
-        for(let key in bc){
+        for(let key in tv_sta){
             for (let anime_bc in ANIME[a_key]["bcInfo"]){
-                
-                
                 for(let i=0; i<ANIME[a_key]["bcInfo"][anime_bc].length; i++){
-                    console.log(i, a_key, ANIME[a_key]["bcInfo"][anime_bc][i]);
-                    if(key === anime_bc & ANIME[a_key]["bcInfo"][anime_bc][i]["week"]===week){
+                    //console.log(i, a_key, ANIME[a_key]["bcInfo"][anime_bc][i]);
+                    if(key === anime_bc & ANIME[a_key]["bcInfo"][anime_bc][i]["week"] === week){
                         try {
                             //console.log(a_key, anime_bc, ANIME[a_key]["bcInfo"][anime_bc]["time"]);
                             let time_id = ANIME[a_key]["bcInfo"][anime_bc][i]["time"].replace(":", "");
-                            let tr_element = document.querySelector("div#div-" + week + ">table>tbody>tr#tr-"+time_id);
-                            console.log(anime_bc, a_key, tr_element);
+                            let tr_element = document.querySelector("div#div-" + week + " div.overflow >table>tbody>tr#tr-"+time_id);
+                            //console.log(anime_bc, a_key, tr_element);
                             if (tr_element !== null){
                                 let td_element = tr_element.getElementsByClassName(anime_bc)[0];
-                                //console.log(td_element);
+                                console.log(td_element);
                                 td_element.textContent = a_key;
                                 td_element.setAttribute("rowSpan", ANIME[a_key]["minutes"]);
                                 td_element.setAttribute("valign", "top");
@@ -162,33 +97,13 @@ function creatAnimeTable(week, bc = BC){
                                         break;
                                     }
                                     let td_del_element = tr_next_element.getElementsByClassName(anime_bc)[0];
-                                    //console.log(tr_next_element, td_element);
+                                    
                                     td_del_element.remove();
                                 }
                             }
-                            
-                            /*
-                            let td_element = tr_element.getElementsByClassName(anime_bc)[0];
-                            //console.log(td_element);
-                            td_element.textContent = a_key;
-                            td_element.setAttribute("rowSpan", ANIME[a_key]["minutes"]);
-                            td_element.setAttribute("valign", "top");
-                            let img_element = document.createElement('img');
-                            img_element.style.width = "200px";
-                            img_element.style.height = "285px";
-                            img_element.src = "./key_visual/webp/"+ANIME[a_key]["img"] + ".webp";
-                            td_element.appendChild(img_element);
-                            //rowspan分のtdタグを消す処理
-                            let tr_next_element = tr_element;
-                            for(i=1; i<ANIME[a_key]["minutes"]; i++){
-                                tr_next_element = tr_next_element.nextElementSibling;
-                                let td_element = tr_next_element.getElementsByClassName(anime_bc)[0];
-                                //console.log(tr_next_element, td_element);
-                                td_element.remove();
-                            }
-                            */
                         } catch (error) {
-                            console.log("error")
+                            console.log(tr_next_element, td_element);
+                            console.log(error)
                         }
                     }
                 }
@@ -201,16 +116,24 @@ function creatAnimeTable(week, bc = BC){
 window.addEventListener('DOMContentLoaded', function() {
     //drag-list生成
     createCheckbox();
-    
-    for(let i=0; i<WEEK.length; i++){
-        createColumns(WEEK[i]);
+    let checkboxes = document.getElementsByClassName("bc-checkbox");
+    for(let i=0; i<checkboxes.length; i++){
+        input_checkBox = checkboxes[i];
+        label = input_checkBox.nextSibling;
+        if(INIT_STA.includes(label.textContent)){
+            input_checkBox.setAttribute("checked", "checked");
+        }
     }
-    for(let i=0; i<WEEK.length; i++){
-        creatTimeIndex(WEEK[i]);
-    }
-    for(let i=0; i<WEEK.length; i++){
-        creatAnimeTable(WEEK[i]);
-    }
+    //全選択・解除のチェックボックス
+    checkbox_all_hokkaido = document.querySelector("#checkbox-all-hokkaido");
+    console.log(checkbox_all_hokkaido);
+    //チェックボックスのリスト
+    checkbox_list_hokkaido = document.querySelectorAll("li.area-hokkaido input");
+    console.log(checkbox_list_hokkaido);
+    //全選択のチェックボックスイベント
+    checkbox_all_hokkaido.addEventListener('change', change_all_hokkaido);
+    update();
+
 });
 
 function createCheckbox(){
@@ -219,7 +142,7 @@ function createCheckbox(){
     let drag_last_li = document.getElementById("drag-last-temp");
 
     let cnt = 1;
-    for(let key in BC){
+    for(let key in TV_STATIONS){
         //新規のli要素作成
         let new_li_element = document.createElement('li');
         //id用文字列作成
@@ -227,18 +150,42 @@ function createCheckbox(){
         //id属性設定
         new_li_element.setAttribute("id", "item"+str_cnt);
         new_li_element.setAttribute("draggable", "true");
+        // class属性
+
+        if(TV_STATIONS[key]["area"] === "北海道"){
+            new_li_element.setAttribute("class", "area-hokkaido");
+        }else if(TV_STATIONS[key]["area"] === "東北"){
+            new_li_element.setAttribute("class", "area-tohoku");
+        }else if(TV_STATIONS[key]["area"] === "関東"){
+            new_li_element.setAttribute("class", "area-tohoku");
+        }else if(TV_STATIONS[key]["area"] === "北陸・甲信越"){
+            new_li_element.setAttribute("class", "area-hokuriku");
+        }else if(TV_STATIONS[key]["area"] === "東海"){
+            new_li_element.setAttribute("class", "area-tokai");
+        }else if(TV_STATIONS[key]["area"] === "関西"){
+            new_li_element.setAttribute("class", "area-kansai");
+        }else if(TV_STATIONS[key]["area"] === "中国"){
+            new_li_element.setAttribute("class", "area-chugoku");
+        }else if(TV_STATIONS[key]["area"] === "四国"){
+            new_li_element.setAttribute("class", "area-shikoku");
+        }else if(TV_STATIONS[key]["area"] === "九州"){
+            new_li_element.setAttribute("class", "area-kyushu");
+        }else if(TV_STATIONS[key]["area"] === "沖縄"){
+            new_li_element.setAttribute("class", "area-okinawa");
+        }
+
         drag_last_li.before(new_li_element);
         
         let new_input_element = document.createElement('input');
         new_input_element.setAttribute("type", "checkbox");
-        new_input_element.setAttribute("id", BC[key]["abbrev"]);
-        new_input_element.setAttribute("name", BC[key]["abbrev"]);
+        new_input_element.setAttribute("id", TV_STATIONS[key]["abbrev"]);
+        new_input_element.setAttribute("name", TV_STATIONS[key]["abbrev"]);
         new_input_element.setAttribute("class", "bc-checkbox");
         //new_input_element.setAttribute("checked", "checked");
         new_li_element.appendChild(new_input_element);
         
         let new_label_element = document.createElement('label');
-        new_label_element.setAttribute("for", BC[key]["abbrev"]);
+        new_label_element.setAttribute("for", TV_STATIONS[key]["abbrev"]);
         new_label_element.textContent = key;
         new_li_element.appendChild(new_label_element);
         cnt++;
@@ -300,23 +247,42 @@ function getTbodyByWeek(week){
 }
 
 function update() {
-    select_bc = {};
+    slc_tv_sta = {};
     let checkboxes = document.getElementsByClassName("bc-checkbox");
     for(let i=0; i<checkboxes.length; i++){
         if(checkboxes[i].checked){
-            select_bc[checkboxes[i].nextSibling.textContent] = BC[checkboxes[i].nextSibling.textContent];
+            slc_tv_sta[checkboxes[i].nextSibling.textContent] = TV_STATIONS[checkboxes[i].nextSibling.textContent];
         }
     }
-    //console.log(select_bc);
-    //console.log(BC);
-    //createTable("sun");
+
     for(let i=0; i<WEEK.length; i++){
         resetTable(WEEK[i]);
-        createColumns(WEEK[i], select_bc);
-        creatTimeIndex(WEEK[i], select_bc);
-        creatAnimeTable(WEEK[i], select_bc);
+        createColumns(WEEK[i], slc_tv_sta);
+        creatTimeIndex(WEEK[i], slc_tv_sta);
+        creatAnimeTable(WEEK[i], slc_tv_sta);
     }
 }
 
+function change_all_hokkaido() {
+
+    //チェックされているか
+    if (checkbox_all_hokkaido.checked) {
+        //全て選択
+        for (let i in checkbox_list_hokkaido) {
+            if (checkbox_list_hokkaido.hasOwnProperty(i)) {
+                checkbox_list_hokkaido[i].checked = true;
+            }
+        }
+    } else {
+        //全て解除
+        for (let i in checkbox_list_hokkaido) {
+            if (checkbox_list_hokkaido.hasOwnProperty(i)) {
+                checkbox_list_hokkaido[i].checked = false;
+            }
+        }
+        
+    }
+
+};
 
 
