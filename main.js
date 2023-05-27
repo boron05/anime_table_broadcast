@@ -93,16 +93,16 @@ function creatAnimeTable(week, tv_sta=TV_STATIONS){
                                 let tr_next_element = tr_element;
                                 for(i=1; i<ANIME[a_key]["minutes"]; i++){
                                     tr_next_element = tr_next_element.nextElementSibling;
+                                    //console.log(tr_next_element);
                                     if(tr_next_element === null){
                                         break;
                                     }
                                     let td_del_element = tr_next_element.getElementsByClassName(anime_bc)[0];
-                                    
                                     td_del_element.remove();
                                 }
                             }
                         } catch (error) {
-                            console.log(tr_next_element, td_element);
+                            //console.log(tr_next_element, td_element);
                             console.log(error)
                         }
                     }
@@ -284,5 +284,3 @@ function change_all_hokkaido() {
     }
 
 };
-
-
