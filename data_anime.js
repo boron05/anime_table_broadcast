@@ -1,3 +1,4 @@
+
 var ANIME = {
   "その着せ替え人形は恋をする": {
     "bcInfo": {
@@ -446,7 +447,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": "kawaisugi"
+    "img": "kawaisugi",
     "note": null
   },
   "遊☆戯☆王ZEXALⅡ": {
