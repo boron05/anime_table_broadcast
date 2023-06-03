@@ -349,7 +349,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全13話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "guiguikuru",
     "note": null
   },
   "異世界ワンターンキル姉さん ～姉同伴の異世界生活はじめました～": {
@@ -361,7 +361,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "onekillsister",
     "note": null
   },
   "リーマンズクラブ": {
@@ -371,7 +371,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "rymansclub",
     "note": null
   },
   "SDGs劇場 サスとテナ シーズン2": {
@@ -408,7 +408,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "bokuyaba",
     "note": null
   },
   "六道の悪女たち": {
@@ -421,7 +421,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "rokudoakujo",
     "note": null
   },
   "スキップとローファー": {
@@ -434,7 +434,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "skipandloafer",
     "note": null
   },
   "カワイスギクライシス": {
@@ -447,7 +447,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "kawaisugi"
     "note": null
   },
   "遊☆戯☆王ZEXALⅡ": {
@@ -531,7 +531,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全13話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "kimisomu",
     "note": null
   },
   "東京ミュウミュウ にゅ～♡ 第2期": {
@@ -548,7 +548,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話 （全24話 分割2期目）",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "tokyo-mew-mew-new-s2",
     "note": null
   },
   "異世界はスマートフォンとともに。2": {
@@ -566,7 +566,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "全12話",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "isesuma-s2",
     "note": null
   },
   "ポケットモンスター めざせポケモンマスター": {
@@ -591,7 +591,7 @@ var ANIME = {
     "minutes": 30,
     "epsodeNum": "1クール（2クール 分割2期目）",
     "season": [["202304", 1]],
-    "img": null,
+    "img": "birdie-wing-s2",
     "note": null
   },
   "死神坊ちゃんと黒メイド": {
